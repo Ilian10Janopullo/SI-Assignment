@@ -2,6 +2,24 @@
 #include <math.h>
 #include <string.h>
 
+double average(){
+    printf("Enter the sequence of numbers (Note : In the end enter 's' which stands for stop): ");
+    double sum = 0.0, avg, number;
+    char character;
+    int cnt = 0;
+    for(int i = 0  ; ; i++){
+        scanf("%lf", &number);
+        scanf("%c", &character);
+        if(character == 's'){
+            break;
+        }
+        sum+=number;
+        cnt++;
+    }
+    avg = sum/cnt;
+    return avg;
+}
+
 double power1(){
     printf("Enter a number and the power you to raise it : ");
     double number, raisingPower;
@@ -19,7 +37,7 @@ double squareRoot1(){
 }
 
 double division1(){
-    printf("Enter the numbers that you want to devide : ");
+    printf("Enter the numbers that you want to divide : ");
     double number1, number2;
     scanf("%lf%lf", &number1,&number2);
     double result = number1/number2;
@@ -27,7 +45,7 @@ double division1(){
 }
 
 double multiplication1(){
-    printf("Enter the numbers that you want to multiplicate : ");
+    printf("Enter the numbers that you want to multiply : ");
     double number1, number2;
     scanf("%lf%lf", &number1,&number2);
     double result = number1*number2;
@@ -51,7 +69,7 @@ double sumation1(){
 }
 
 int main(){
-    printf("Set the action you want to perform (+ - * / pow sqrt) : ");
+    printf("Set the action you want to perform (+ , - ,  * , / , pow , sqrt , or 'a' for average) : ");
     char action[20];
     scanf("%s", action);
     if(!strcmp(action, "+")){
@@ -71,6 +89,9 @@ int main(){
     }
     else if(!strcmp(action, "sqrt")){
         printf("The result is : %lf", squareRoot1());
+    }
+    else if(!strcmp(action, "a")){
+        printf("The average is : %lf", average());
     }
     return 0;
 }
